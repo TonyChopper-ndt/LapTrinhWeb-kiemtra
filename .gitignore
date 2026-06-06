@@ -1,0 +1,18 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build output
+bin/
+obj/
+
+## Logs
+*.log
+
+## Runtime uploaded files
+**/wwwroot/images/uploads/
+
+## OS/editor files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,38 @@
+@model IEnumerable<Course>
+
+@{
+    ViewData["Title"] = "Quản lý học phần";
+}
+
+<h2>Quản lý học phần</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Tạo học phần</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên học phần</th>
+            <th>Số tín chỉ</th>
+            <th>Giảng viên</th>
+            <th>Danh mục</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Credits</td>
+                <td>@item.Lecturer</td>
+                <td>@item.Category?.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

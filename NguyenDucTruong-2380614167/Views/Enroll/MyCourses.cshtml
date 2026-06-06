@@ -1,0 +1,37 @@
+@model IEnumerable<Enrollment>
+
+@{
+    ViewData["Title"] = "Học phần của tôi";
+}
+
+<h2>Học phần đã đăng ký</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Hình ảnh</th>
+            <th>Tên học phần</th>
+            <th>Số tín chỉ</th>
+            <th>Giảng viên</th>
+            <th>Ngày đăng ký</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.Course?.Image" width="100" alt="@item.Course?.Name" /></td>
+                <td>@item.Course?.Name</td>
+                <td>@item.Course?.Credits</td>
+                <td>@item.Course?.Lecturer</td>
+                <td>@item.EnrollDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <form asp-controller="Enroll" asp-action="Cancel" asp-route-courseId="@item.CourseId" method="post">
+                        <button type="submit" class="btn btn-warning btn-sm">Hủy đăng ký</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

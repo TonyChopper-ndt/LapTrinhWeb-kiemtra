@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Mạng máy tính căn bản">
+  <rect width="300" height="180" fill="#20c997"/>
+  <rect x="28" y="34" width="244" height="112" rx="8" fill="#ffffff" opacity="0.92"/>
+  <text x="150" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#083b31">Mạng máy tính</text>
+  <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#083b31">căn bản</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Entity Framework Core">
+  <rect width="300" height="180" fill="#6610f2"/>
+  <rect x="28" y="34" width="244" height="112" rx="8" fill="#ffffff" opacity="0.92"/>
+  <text x="150" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#251047">Entity Framework</text>
+  <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#251047">Core</text>
+</svg>

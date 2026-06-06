@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Bảng thống kê";
+}
+
+<h2>Bảng thống kê</h2>
+
+<style>
+    .dashboard-diagram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin: 30px 0;
+    }
+
+    .diagram-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border: 3px solid #0d6efd;
+        background-color: #f8fbff;
+    }
+
+    .diagram-circle {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+    }
+
+    .diagram-square {
+        width: 190px;
+        height: 190px;
+    }
+
+    .diagram-number {
+        font-size: 44px;
+        font-weight: bold;
+        color: #0d6efd;
+    }
+
+    .diagram-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="dashboard-diagram">
+    <div class="diagram-item diagram-circle">
+        <div class="diagram-number">@ViewBag.TotalCourses</div>
+        <div class="diagram-title">Học phần</div>
+    </div>
+
+    <div class="diagram-item diagram-square">
+        <div class="diagram-number">@ViewBag.TotalStudents</div>
+        <div class="diagram-title">Sinh viên</div>
+    </div>
+
+    <div class="diagram-item diagram-square">
+        <div class="diagram-number">@ViewBag.TotalEnrollments</div>
+        <div class="diagram-title">Lượt đăng ký</div>
+    </div>
+</div>

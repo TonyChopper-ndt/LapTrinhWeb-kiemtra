@@ -1,0 +1,75 @@
+@model IEnumerable<Course>
+
+@{
+    ViewData["Title"] = "Học phần";
+    var enrolledCourseIds = ViewBag.EnrolledCourseIds as List<int> ?? new List<int>();
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
+    string keyword = ViewBag.Keyword ?? "";
+}
+
+<h2>Danh sách học phần</h2>
+
+<form asp-action="Index" method="get" class="row mb-3">
+    <div class="col-md-8">
+        <input type="text" name="keyword" value="@keyword" class="form-control" placeholder="Tìm theo tên học phần" />
+    </div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        <a asp-action="Index" class="btn btn-secondary">Tất cả</a>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Hình ảnh</th>
+            <th>Tên học phần</th>
+            <th>Số tín chỉ</th>
+            <th>Giảng viên</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.Image" width="100" alt="@item.Name" /></td>
+                <td>@item.Name</td>
+                <td>@item.Credits</td>
+                <td>@item.Lecturer</td>
+                <td>
+                    @if (User.IsInRole("STUDENT"))
+                    {
+                        if (enrolledCourseIds.Contains(item.Id))
+                        {
+                            <form asp-controller="Enroll" asp-action="Cancel" asp-route-courseId="@item.Id" method="post">
+                                <button type="submit" class="btn btn-warning btn-sm">Hủy đăng ký</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Enroll" asp-action="Add" asp-route-courseId="@item.Id" method="post">
+                                <button type="submit" class="btn btn-success btn-sm">Đăng ký</button>
+                            </form>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (totalPages > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-keyword="@keyword">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

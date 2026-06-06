@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" role="img" aria-label="Lập trình web">
+  <rect width="300" height="180" fill="#0d6efd"/>
+  <rect x="28" y="34" width="244" height="112" rx="8" fill="#ffffff" opacity="0.92"/>
+  <text x="150" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0b2545">Lập trình web</text>
+  <text x="150" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#0b2545">HTML - CSS - JS</text>
+</svg>
